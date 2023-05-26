@@ -1,0 +1,4 @@
+node_modules/
+biuld/
+uploads/*
+!uploads/.gitkeep

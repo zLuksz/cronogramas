@@ -1,1 +1,0 @@
-console.log("Jaquellyne de Sousa Teles");

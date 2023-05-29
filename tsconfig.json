@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES2018",
+    "lib": ["es5", "es6", "ES2018"],
     "module": "CommonJS",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -10,5 +11,7 @@
     "noImplicitAny": true,
     "outDir": "build",
     "rootDir": "src"
-  }
+  },
+  "compileOnSave": true,
+  "include": ["src"]
 }

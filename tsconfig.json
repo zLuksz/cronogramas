@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
-    "target":"ES5",
-    "module":"CommonJS",
-    "allowJs":true,
-    "outDir":"build",
-    "rootDir":"src"
+    "target": "ES5",
+    "module": "CommonJS",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "outDir": "build",
+    "rootDir": "src"
   }
 }

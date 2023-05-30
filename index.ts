@@ -1,23 +1,13 @@
-// O arquivo index.js é o arquivo inicial
-// a ser acessado quando uma conexão
-// CLIENTE-SERVIDOR é estabelecida.
-// É a partir do arquivo index.js que os
-// outros arquivos serão chamados.
+import { AppDataSource } from "./src/databases/connections/data-source"
 
-import { AppDataSource } from './src/databases/data-source';
+const express = require("express")
+const app = express()
+app.use(express.json())
 
-const express = require("express");
+app.get("/", (request, response) => {
+  return response.json("E aí, suave?")
+})
 
-const app = express();
+app.listen(3333, () => console.log("O server tá ON na porta 3333."))
 
-app.use(express.json());
-
-app.get('/', (request, response) => {
-    return response.json('Uma Hora Chegamos Lá!');
-});
-
-app.listen(3000, () => 
-    console.log("O server ta On na porta 3000.")
-);
-
-AppDataSource.initialize();
+AppDataSource.initialize()

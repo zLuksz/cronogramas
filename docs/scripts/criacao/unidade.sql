@@ -3,5 +3,5 @@ CREATE TABLE Unidade (
 	descricaoUnidade VARCHAR NOT NULL,
 	cargaHorariaUnidade INTEGER NOT NULL,
 	ordem INTEGER NOT NULL,
-	idCurso REFERENCES Curso (idCurso)
+	fkCurso VARCHAR REFERENCES Curso (idCurso)
 );

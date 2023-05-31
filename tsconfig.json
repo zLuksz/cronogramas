@@ -17,10 +17,6 @@
       "@models":["./src/databases/models/*"],
       "@routes":["./src/routes/*"],
       "@services":["./src/services/*"]
-
-
-
-      
     }
   },
   "compileOnSave": true,

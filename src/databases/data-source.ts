@@ -9,5 +9,5 @@ export const AppDataSource = new DataSource({
     database: "cronogramas",
     synchronize: true,
     logging: true,
-   // entities: [curso, unidades, Turma, Aula]
+    //entities: [Curso, Unidade, Turma, Aula]
 })

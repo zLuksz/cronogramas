@@ -53,17 +53,3 @@ DB -> BACKEND 				                               -> FRONTEND
 
 - Criar arquivo index.ts
 - Criar script "start" no arquivo package.json
-
-
-
-
-
-
-
-
-
-
-
-
-
-

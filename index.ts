@@ -1,4 +1,5 @@
 import { AppDataSource } from "./src/databases/connections/data-source"
+AppDataSource.initialize()
 
 const express = require("express")
 const app = express()
@@ -9,5 +10,3 @@ app.get("/", (request, response) => {
 })
 
 app.listen(3333, () => console.log("O server tá ON na porta 3333."))
-
-AppDataSource.initialize()

@@ -9,4 +9,4 @@ app.get('/', (request, response) => {
     return response.json("E ai, suave?")
 })
 
-app.listen(3333, () => console.log("O server esta ON na porta 3333."))
+app.listen(3333, () =>  console.log("O server esta ON na porta 3333."))

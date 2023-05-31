@@ -18,7 +18,6 @@
       "@routes":["./src/routes/*"],
       "@services":["./src/services/*"]
     }
-
   },
   "compileOnSave": true,
   "include": ["src"]

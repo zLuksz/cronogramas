@@ -68,7 +68,7 @@ export class DeleteUnidadeService {
             return new Error("Unidade Não Encontrada!")
         }
 
-        await cursor.delete(unidade)
+        await cursor.delete(unidade.id_unidade)
         
         return unidade
     }

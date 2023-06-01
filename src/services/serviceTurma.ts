@@ -1,5 +1,7 @@
 import { AppDataSource } from "../databases/connections/data-source"
 import Turma from "../databases/models/turma"
+import Unidade from "../databases/models/unidade"
+
 
 const cursor = AppDataSource.getRepository(Turma)
 
@@ -8,6 +10,10 @@ type newTurmaRequest = {
     data_fim: Date
     horas_aula_dia: number
     fk_curso: string
+}
+
+type findOneTurmaRequest = {
+    id_turma: string
 }
 
 export class CreateTurmaService {
@@ -34,10 +40,37 @@ export class CreateTurmaService {
     }
 }
 
-export class ReadAllCursoService {}
+export class ReadAllTurmaService {
+    async execute() {
+        const turma = await cursor.find()
+        return turma
+    }
+}
 
-export class ReadOneCursoService {}
+export class ReadOneTurmaService {
+    async execute({ id_turma }: findOneTurmaRequest) {
+        const turma = await cursor.findOne({ where : {id_turma}})
 
-export class UpdateCursoService {}
+        if (!turma) {
+            return new Error("Turma Não Encontrada!")
+        }
 
-export class DeleteCursoService {}
+        return turma
+    }
+}
+
+export class UpdateTurmaService {}
+
+export class DeleteTurmaService {
+    async execute({ id_turma }: findOneTurmaRequest) {
+        const turma = await cursor.findOne({ where : {id_turma}})
+
+        if (!turma) {
+            return new Error("Turma Não Encontrada!")
+        }
+
+        await cursor.delete(turma.id_turma)
+
+        return turma
+    }
+}

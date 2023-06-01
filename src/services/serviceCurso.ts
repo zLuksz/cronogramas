@@ -87,7 +87,7 @@ export class DeleteCursoService {
       return new Error("Curso não encontrado!")
     }
     // Se o curso for encontrado, deleta do BD - DELETE FROM curso WHERE id_curso = ??
-    await cursor.delete(curso)
+    await cursor.delete(curso.id_curso)
     // Retorna para o usuário o curso que foi deletado
     return curso
   }

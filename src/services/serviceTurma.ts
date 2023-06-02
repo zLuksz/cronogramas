@@ -12,11 +12,19 @@ type newTurmaRequest = {
     fk_curso: string
 }
 
+type updateTurmaRequest = {
+    id_turma: string
+    data_inicio: Date
+    data_fim: Date
+    horas_aula_dia: number
+    fk_curso: string
+}
+
 type findOneTurmaRequest = {
     id_turma: string
 }
 
-export class CreateTurmaService {
+export class TurmaService {
     async execute({
         data_inicio,
         data_fim,
@@ -38,14 +46,14 @@ export class CreateTurmaService {
 
         return turma
     }
-}
-
-export class ReadAllTurmaService {
-    async execute() {
+    
+    async readAll() {
         const turma = await cursor.find()
         return turma
     }
 }
+
+
 
 export class ReadOneTurmaService {
     async execute({ id_turma }: findOneTurmaRequest) {

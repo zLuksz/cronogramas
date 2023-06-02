@@ -25,7 +25,7 @@ type findOneTurmaRequest = {
 }
 
 export class TurmaService {
-    async execute({
+    async create({
         data_inicio,
         data_fim,
         horas_aula_dia,
@@ -51,34 +51,55 @@ export class TurmaService {
         const turma = await cursor.find()
         return turma
     }
-}
 
-
-
-export class ReadOneTurmaService {
-    async execute({ id_turma }: findOneTurmaRequest) {
+    async readOne({ id_turma }: findOneTurmaRequest): Promise <Turma | Error> {
         const turma = await cursor.findOne({ where : {id_turma}})
+    
+        if (!turma) {
+            return new Error("Turma Não Encontrada!")
+        }
+    
+        return turma
+    }
+
+    async update({
+        id_turma,
+        data_inicio,
+        data_fim,
+        horas_aula_dia,
+        fk_curso,
+    }: updateTurmaRequest): Promise <Turma | Error> {
+        const turma = await cursor.findOne({where: {id_turma}})
 
         if (!turma) {
             return new Error("Turma Não Encontrada!")
         }
+
+        turma.data_inicio = data_inicio 
+            ? data_inicio
+            : turma.data_inicio
+        turma.data_fim = data_fim
+            ? data_fim
+            :turma.data_fim
+        turma.horas_aula_dia = horas_aula_dia 
+            ? horas_aula_dia 
+            : horas_aula_dia
+
+        await cursor.save(turma)
 
         return turma
     }
-}
 
-export class UpdateTurmaService {}
-
-export class DeleteTurmaService {
-    async execute({ id_turma }: findOneTurmaRequest) {
+    async delete({ id_turma }: findOneTurmaRequest): Promise <Turma | Error> {
         const turma = await cursor.findOne({ where : {id_turma}})
-
+    
         if (!turma) {
             return new Error("Turma Não Encontrada!")
         }
-
+    
         await cursor.delete(turma.id_turma)
-
+    
         return turma
     }
 }
+
